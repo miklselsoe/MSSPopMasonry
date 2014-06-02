@@ -5,7 +5,7 @@ Use [Masonry](https://github.com/cloudkite/Masonry/) with the [Facebook Pop](htt
 
 MSSPopMasonry is the marriage between Pop and Masonry. Here's an example of how to animate a Masonry layout constraint:
 
-```objective-c
+```smalltalk
 [myView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view);
         make.right.equalTo(self.view);
