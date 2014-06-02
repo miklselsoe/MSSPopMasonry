@@ -19,5 +19,7 @@ POPBasicAnimation *leftSideAnimation = [POPBasicAnimation new];
 leftSideAnimation = @(newOffset);
 leftSideAnimation.property = [POPAnimatableProperty mas_offsetProperty];
 
-[self.leftSideConstraint pop_addAnimation:leftWidthAnimation forKey:@"offset"];
+[self.leftSideConstraint pop_addAnimation:leftSideAnimation forKey:@"offset"];
 ```
+
+More properties are coming. Pull requests are welcome!
