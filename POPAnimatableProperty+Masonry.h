@@ -11,6 +11,8 @@
 + (POPAnimatableProperty*) mas_offsetProperty;
 + (POPAnimatableProperty*) mas_sizeOffsetProperty;
 + (POPAnimatableProperty*) mas_centerOffsetProperty;
++ (POPAnimatableProperty*) mas_multipliedByProperty;
++ (POPAnimatableProperty*) mas_dividedByProperty;
 
 // POP does not support all value types
 //+ (POPAnimatableProperty*) mas_insetsProperty;

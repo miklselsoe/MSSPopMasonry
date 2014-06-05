@@ -5,9 +5,18 @@
 //
 
 #import "POPAnimatableProperty+Masonry.h"
+#import "Masonry.h"
 
 CGFloat getLayoutConstant(MASConstraint* constraint) {
     return (CGFloat)[[constraint valueForKey:@"layoutConstant"] floatValue];
+}
+
+CGFloat getLayoutMultiplier(MASConstraint* constraint) {
+    return (CGFloat)[[constraint valueForKey:@"layoutMultiplier"] floatValue];
+}
+
+void setLayoutMultiplier(MASConstraint* constraint, CGFloat multiplier) {
+    [constraint setValue:@(multiplier) forKey:@"layoutMultiplier"];
 }
 
 NSArray* getChildren(MASCompositeConstraint* constraint)  {
@@ -16,10 +25,12 @@ NSArray* getChildren(MASCompositeConstraint* constraint)  {
 
 @implementation POPAnimatableProperty (Masonry)
 
+#pragma mark - Constants
+
 + (POPAnimatableProperty*) mas_offsetProperty {
     return [POPAnimatableProperty propertyWithName:@"offset" initializer:^(POPMutableAnimatableProperty *prop) {
         prop.readBlock = ^(MASConstraint *constraint, CGFloat values[]) {
-            values[0] = (CGFloat)[[constraint valueForKey:@"layoutConstant"] floatValue];
+            values[0] = getLayoutConstant(constraint);
         };
         
         prop.writeBlock = ^(MASConstraint *constraint, const CGFloat values[]) {
@@ -27,6 +38,8 @@ NSArray* getChildren(MASCompositeConstraint* constraint)  {
         };
     }];
 }
+
+#pragma mark Structs
 
 + (POPAnimatableProperty*) mas_sizeOffsetProperty {
     return [POPAnimatableProperty propertyWithName:@"sizeOffset" initializer:^(POPMutableAnimatableProperty *prop) {
@@ -95,7 +108,7 @@ NSArray* getChildren(MASCompositeConstraint* constraint)  {
 //        prop.readBlock = ^(MASCompositeConstraint *constraint, CGFloat values[]) {
 //            MASEdgeInsets insets;
 //            NSArray *childConstraints = getChildren(constraint);
-//            
+//
 //            for (MASViewConstraint *childConstraint in childConstraints) {
 //                NSLayoutAttribute layoutAttribute = childConstraint.firstViewAttribute.layoutAttribute;
 //                switch (layoutAttribute) {
@@ -115,18 +128,44 @@ NSArray* getChildren(MASCompositeConstraint* constraint)  {
 //                        break;
 //                }
 //            }
-//            
+//
 //            values[0] = insets.top;
 //            values[1] = insets.left;
 //            values[2] = insets.bottom;
 //            values[3] = insets.right;
 //        };
-//        
+//
 //        prop.writeBlock = ^(MASConstraint *constraint, const CGFloat values[]) {
 //            MASEdgeInsets insets = (MASEdgeInsets){values[0], values[1], values[2], values[3]};
 //            [constraint setInsets:insets];
 //        };
 //    }];
 //}
+
+#pragma mark - Multipliers
+
++ (POPAnimatableProperty*) mas_multipliedByProperty {
+    return [POPAnimatableProperty propertyWithName:@"multiplier" initializer:^(POPMutableAnimatableProperty *prop) {
+        prop.readBlock = ^(MASConstraint *constraint, CGFloat values[]) {
+            values[0] = getLayoutMultiplier(constraint);
+        };
+        
+        prop.writeBlock = ^(MASConstraint *constraint, const CGFloat values[]) {
+            setLayoutMultiplier(constraint, values[0]);
+        };
+    }];
+}
+
++ (POPAnimatableProperty*) mas_dividedByProperty {
+    return [POPAnimatableProperty propertyWithName:@"divider" initializer:^(POPMutableAnimatableProperty *prop) {
+        prop.readBlock = ^(MASConstraint *constraint, CGFloat values[]) {
+            values[0] = getLayoutMultiplier(constraint);
+        };
+        
+        prop.writeBlock = ^(MASConstraint *constraint, const CGFloat values[]) {
+            setLayoutMultiplier(constraint, 1.0/values[0]);
+        };
+    }];
+}
 
 @end
