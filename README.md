@@ -3,7 +3,7 @@ MSSPopMasonry
 
 Use [Masonry](https://github.com/cloudkite/Masonry/) with the [Facebook Pop](https://github.com/facebook/pop/) animation framework.
 
-MSSPopMasonry is the marriage between Pop and Masonry. Here's an example of how to animate a Masonry layout constraint:
+MSSPopMasonry is the marriage between Pop and Masonry. It is a category on `POPAnimatableProperty` that lets you easily create `POPAnimatableProperty` objects that works great with Masonry. Here's an example of how to animate a Masonry layout constraint using the offset property:
 
 ```objective-c
 [myView mas_makeConstraints:^(MASConstraintMaker *make) {
