@@ -21,3 +21,20 @@ POPBasicAnimation *leftSideAnimation = [POPBasicAnimation new];
 
 [self.leftSideConstraint pop_addAnimation:leftWidthAnimation forKey:@"offset"];
 ```
+
+The MASConstraint properties supported currently:
+- `offset`
+- `sizeOffset`
+- `centerOffset`
+- `multipliedBy`
+- `dividedBy`
+
+Support for `insets` is pending Pop supporting `UIEdgeInsets` in `NSValue` objects when passed to an animation object's `toValue` property.
+
+## Installation
+You can import the MSSPopMasonry files as is or through Cocoapods. If you want to use MSSPopMasonry with the latest versions of Pop and Masonry, all you have to do is specify
+```
+pod 'MSSPopMasonry' 
+```
+in your `Podfile` and both Pop and Masonry will be included in your project along with MSSPopMasonry.
+
