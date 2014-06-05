@@ -4,6 +4,8 @@ Pod::Spec.new do |s|
   s.summary             = "Use Masonry with the Facebook Pop animation framework"
   s.homepage            = "https://github.com/miklselsoe/MSSPopMasonry"
   s.author              = { "Mikkel Selsøe Sørensen" => "mikkel@mikls.dk" }
+  s.social_media_url    = "http://twitter.com/selsoe"
+  s.license             = 'MIT'
   s.source              = { :git => "git@github.com:miklselsoe/MSSPopMasonry.git", :tag => s.version.to_s }
   s.source_files        = 'Classes'
   s.requires_arc        = true
