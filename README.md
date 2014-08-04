@@ -16,7 +16,7 @@ MSSPopMasonry is the marriage between Pop and Masonry. It is a category on `POPA
 
 newOffset = 100;
 POPBasicAnimation *leftSideAnimation = [POPBasicAnimation new];
-leftSideAnimation = @(newOffset);
+leftSideAnimation.toValue = @(newOffset);
 leftSideAnimation.property = [POPAnimatableProperty mas_offsetProperty];
 
 [self.leftSideConstraint pop_addAnimation:leftSideAnimation forKey:@"offset"];
