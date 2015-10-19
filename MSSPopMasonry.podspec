@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name                = "MSSPopMasonry"
-  s.version             = '0.0.1'
+  s.version             = '0.0.2'
   s.summary             = "Use Masonry with the Facebook Pop animation framework"
   s.homepage            = "https://github.com/miklselsoe/MSSPopMasonry"
   s.author              = { "Mikkel Selsøe Sørensen" => "mikkel@mikls.dk" }
