@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.author              = { "Mikkel Selsøe Sørensen" => "mikkel@mikls.dk" }
   s.social_media_url    = "http://twitter.com/selsoe"
   s.license             = 'MIT'
-  s.source              = { :git => "git@github.com:miklselsoe/MSSPopMasonry.git", :tag => s.version.to_s }
+  s.source              = { :git => "https://github.com/miklselsoe/MSSPopMasonry.git", :tag => s.version.to_s }
   s.source_files        = 'Classes'
   s.requires_arc        = true
   
